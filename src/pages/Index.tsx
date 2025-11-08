@@ -353,6 +353,240 @@ const Index = () => {
         </div>
       </section>
 
+      <section className="py-24 px-6 relative">
+        <div className="container mx-auto max-w-7xl">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold mb-6">Демонстрации и кейсы</h2>
+            <p className="text-xl text-gray-300">Готовый демонстрационный код и реальные примеры внедрения</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                icon: "Calculator",
+                title: "Инженерный калькулятор",
+                tech: "RUNA + Qt",
+                description: "Полнофункциональное GUI-приложение с нативным интерфейсом"
+              },
+              {
+                icon: "Gamepad2",
+                title: "Игра Арканоид",
+                tech: "RUNA + SDL",
+                description: "2D игра с физикой и графикой, демонстрация игрового стека"
+              },
+              {
+                icon: "FolderOpen",
+                title: "RUNA Launcher",
+                tech: "Менеджер проектов",
+                description: "Центр управления проектами, шаблоны и ресурсы"
+              },
+              {
+                icon: "Globe",
+                title: "Веб-генератор",
+                tech: "RUNA + Web",
+                description: "Создание статических сайтов с использованием RUNA"
+              }
+            ].map((demo, i) => (
+              <Card key={i} className="glass-card p-6 border border-white/10 hover:border-[#2F6BFF]/50 transition-all group hover:scale-105 cursor-pointer">
+                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#2F6BFF]/30 to-[#13C1A3]/30 flex items-center justify-center mb-4 group-hover:animate-glow-pulse border border-[#2F6BFF]/40 mx-auto">
+                  <Icon name={demo.icon} size={40} className="text-[#13C1A3]" />
+                </div>
+                <h3 className="text-xl font-bold mb-2 text-center">{demo.title}</h3>
+                <Badge className="mb-3 bg-[#2F6BFF]/20 border-[#2F6BFF]/50 text-[#13C1A3] text-xs mx-auto block w-fit">
+                  {demo.tech}
+                </Badge>
+                <p className="text-sm text-gray-400 text-center mb-4">{demo.description}</p>
+                <div className="flex gap-2">
+                  <Button size="sm" variant="outline" className="border-white/20 text-white hover:bg-white/10 flex-1 text-xs">
+                    <Icon name="Download" size={14} className="mr-1" />
+                    Скачать
+                  </Button>
+                  <Button size="sm" variant="outline" className="border-white/20 text-white hover:bg-white/10 flex-1 text-xs">
+                    <Icon name="PlayCircle" size={14} className="mr-1" />
+                    Видео
+                  </Button>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 px-6 relative">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold mb-6">Этапы развития и готовность</h2>
+            <p className="text-xl text-gray-300">Все ключевые этапы завершены — РУНА готова к внедрению</p>
+          </div>
+
+          <div className="relative">
+            <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-[#2F6BFF] via-[#13C1A3] to-[#2F6BFF] transform -translate-x-1/2" />
+            
+            {[
+              {
+                stage: "Этап 1",
+                title: "Архитектура",
+                description: "Проектирование языка, определение синтаксиса и семантики",
+                status: "completed"
+              },
+              {
+                stage: "Этап 2",
+                title: "Виртуальная машина",
+                description: "Собственная VM с поддержкой многопоточности и оптимизаций",
+                status: "completed"
+              },
+              {
+                stage: "Этап 3",
+                title: "Компилятор",
+                description: "Полнофункциональный компилятор с оптимизацией кода",
+                status: "completed"
+              },
+              {
+                stage: "Этап 4",
+                title: "Стандартная библиотека",
+                description: "300+ функций для работы с данными, файлами, сетью, GUI",
+                status: "completed"
+              },
+              {
+                stage: "Этап 5",
+                title: "Демо-проекты",
+                description: "Готовые примеры приложений: калькулятор, игры, веб",
+                status: "completed"
+              },
+              {
+                stage: "Этап 6",
+                title: "Экосистема",
+                description: "Launcher, VS Code, AI-ассистент, обучающие материалы",
+                status: "completed"
+              }
+            ].map((phase, i) => (
+              <div key={i} className={`relative mb-12 ${i % 2 === 0 ? 'md:pr-1/2' : 'md:pl-1/2'}`}>
+                <Card className={`glass-card p-6 border border-[#13C1A3]/50 relative ${i % 2 === 0 ? 'md:mr-auto md:ml-0 md:w-[calc(50%-3rem)]' : 'md:ml-auto md:mr-0 md:w-[calc(50%-3rem)]'} group hover:scale-105 transition-all`}>
+                  <div className="absolute top-1/2 transform -translate-y-1/2 w-6 h-6 rounded-full bg-[#13C1A3] border-4 border-[#0B1F40] glow-effect z-10" 
+                    style={{ [i % 2 === 0 ? 'right' : 'left']: '-3rem' }} />
+                  
+                  <Badge className="mb-3 bg-[#2F6BFF]/20 border-[#2F6BFF]/50 text-[#2F6BFF] text-xs">
+                    {phase.stage}
+                  </Badge>
+                  
+                  <div className="flex items-start justify-between mb-2">
+                    <h3 className="text-2xl font-bold">{phase.title}</h3>
+                    <Icon name="CheckCircle2" className="text-[#13C1A3] flex-shrink-0 ml-2" size={24} />
+                  </div>
+                  
+                  <p className="text-gray-400">{phase.description}</p>
+                </Card>
+              </div>
+            ))}
+          </div>
+
+          <Card className="glass-card p-8 border border-[#2F6BFF]/50 text-center mt-12">
+            <h3 className="text-2xl font-bold mb-4 flex items-center justify-center gap-3">
+              <Icon name="Rocket" className="text-[#13C1A3]" size={32} />
+              Дальнейшее развитие
+            </h3>
+            <p className="text-gray-300 mb-6">
+              Внедряем расширенные возможности Launcher, готовим полноценный веб-сайт, развиваем VS Code расширение и AI-помощник
+            </p>
+            <div className="grid md:grid-cols-3 gap-4 text-sm">
+              <div className="flex items-center gap-2 justify-center">
+                <Icon name="Layers" className="text-[#2F6BFF]" size={18} />
+                <span>Расширенный Launcher</span>
+              </div>
+              <div className="flex items-center gap-2 justify-center">
+                <Icon name="Code" className="text-[#2F6BFF]" size={18} />
+                <span>Улучшенное VS Code расширение</span>
+              </div>
+              <div className="flex items-center gap-2 justify-center">
+                <Icon name="Brain" className="text-[#2F6BFF]" size={18} />
+                <span>Развитие AI-ассистента</span>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </section>
+
+      <section className="py-24 px-6 relative">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold mb-6">Образование и кадры</h2>
+            <p className="text-xl text-gray-300">Старт без барьеров — от школы до корпоративного университета</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            {[
+              {
+                icon: "School",
+                title: "Школы",
+                features: ["Русский синтаксис с 1 урока", "Интерактивные задания", "Визуальное программирование", "Подготовка к олимпиадам"]
+              },
+              {
+                icon: "BookOpen",
+                title: "ВУЗы",
+                features: ["Полный курс алгоритмов", "Промышленная разработка", "Дипломные проекты", "Научные исследования"]
+              },
+              {
+                icon: "Briefcase",
+                title: "Корпоративные университеты",
+                features: ["Яндекс.Практикум готов", "Сбер.Академия поддержка", "Быстрая адаптация кадров", "Без переучивания на English"]
+              }
+            ].map((edu, i) => (
+              <Card key={i} className="glass-card p-8 border border-white/10 hover:border-[#2F6BFF]/50 transition-all group hover:scale-105">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#2F6BFF] to-[#13C1A3] flex items-center justify-center mb-6 group-hover:animate-glow-pulse">
+                  <Icon name={edu.icon} size={32} className="text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4">{edu.title}</h3>
+                <ul className="space-y-3">
+                  {edu.features.map((feature, j) => (
+                    <li key={j} className="flex items-start gap-2 text-sm text-gray-400">
+                      <Icon name="Check" className="text-[#13C1A3] flex-shrink-0 mt-0.5" size={16} />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+            ))}
+          </div>
+
+          <Card className="glass-card p-8 border border-[#13C1A3]/50 glow-effect">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 className="text-3xl font-bold mb-4">Интерактивное обучение встроено</h3>
+                <ul className="space-y-3 text-gray-300">
+                  <li className="flex items-start gap-3">
+                    <Icon name="GraduationCap" className="text-[#13C1A3] flex-shrink-0 mt-1" size={20} />
+                    <span>Модульная система курсов от базового до продвинутого уровня</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Icon name="Target" className="text-[#13C1A3] flex-shrink-0 mt-1" size={20} />
+                    <span>Практикум с реальными задачами и проектами</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Icon name="Award" className="text-[#13C1A3] flex-shrink-0 mt-1" size={20} />
+                    <span>Система сертификации и оценки компетенций</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Icon name="Users" className="text-[#13C1A3] flex-shrink-0 mt-1" size={20} />
+                    <span>Сообщество наставников и активный форум поддержки</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="text-center">
+                <div className="inline-block p-12 rounded-3xl glass-card border border-[#2F6BFF]/50">
+                  <Icon name="Sparkles" className="text-[#13C1A3] mb-4 mx-auto" size={64} />
+                  <div className="text-5xl font-bold text-[#13C1A3] mb-2">0</div>
+                  <div className="text-gray-400">Барьеров входа</div>
+                </div>
+                <Button className="mt-6 bg-gradient-to-r from-[#2F6BFF] to-[#13C1A3] hover:scale-105 transition-transform">
+                  <Icon name="Package" className="mr-2" size={18} />
+                  Получить учебный пакет
+                </Button>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </section>
+
       <section className="py-32 px-6 relative">
         <div className="container mx-auto max-w-5xl text-center">
           <Badge className="mb-6 bg-gradient-to-r from-[#2F6BFF] to-[#13C1A3] border-0 text-white px-6 py-2 text-sm">
